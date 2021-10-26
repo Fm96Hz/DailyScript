@@ -12,3 +12,4 @@ for ip in $(cat $1); do
 done
 
 cat ${PWD}/ping_failed.txt
+
