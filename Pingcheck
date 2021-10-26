@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+#测试网络连通性
+file=$1
+PWD=$(pwd)
+for ip in $(cat $1); do
+
+  ping -W2000 ${ip} #超时2s终止
+  if [ $? -eq 1 ]; then
+    echo "${ip} ping failed" >>${PWD}/ping_failed.txt
+  fi
+
+done
+
+cat ${PWD}/ping_failed.txt
