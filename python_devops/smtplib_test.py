@@ -5,8 +5,8 @@ from email.mime.text import MIMEText
 HOST = "smtp.163.com"
 #SUBJECT = "The test email"
 SUBJECT = "数据报表"
-TO = "jack456645@qq.com"
-FROM = "18339699712@163.com"
+TO = "xxxxxxxxx@qq.com"
+FROM = "xxxxxxxx@163.com"
 '''#简单内容
 context = "This is Python email test"
 BODY = "\r\n".join((
@@ -20,7 +20,7 @@ print(BODY)
 server = smtplib.SMTP_SSL()
 server.connect(HOST,"465")
 try:
-    server.login("18339699712@163.com","IKNBXLQRYCPDPUEH")
+    server.login("xxxxxxxxx@163.com","xxxxxxx")
     server.sendmail(FROM,[TO],BODY)
     server.quit
 except Exception as e:
@@ -52,7 +52,7 @@ msg['To'] = TO
 try:
     server = smtplib.SMTP_SSL()
     server.connect(HOST,"465")
-    server.login("18339699712@163.com","IKNBXLQRYCPDPUEH")
+    server.login("xxxxxxxxxx@163.com","xxxxxxxxxxxx")
     server.sendmail(FROM,TO,msg.as_string())
     server.quit()
 except Exception as e:
