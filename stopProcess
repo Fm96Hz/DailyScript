@@ -1,0 +1,7 @@
+#/bin/bash
+for column in `cat ip_pass`
+do 
+  IP=`echo ${column} |awk -F"," '{print $1}'`
+  PASS=`echo ${column} |awk -F"," '{print $2}'`
+  sshpass -p ${PASS} ssh -o StrictHostKeyChecking=no at_omd@"${IP}" "sudo bash /xxxx/xxxxx/stop.sh"  
+done
