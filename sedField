@@ -1,0 +1,9 @@
+#/bin/bash
+#ip_pass文件中ip和密码以 ， 分隔
+for column in `cat ip_pass`
+do 
+  IP=`echo ${column} |awk -F"," '{print $1}'`
+  PASS=`echo ${column} |awk -F"," '{print $2}'`
+  sshpass -p ${PASS} ssh  -o StrictHostKeyChecking=no at_omd@"${IP}" "sudo sed -i '2c xxxxx=10.10.10.1' /xxxxxx/xxxx/xxxxx"
+  sshpass -p ${PASS} ssh  -o StrictHostKeyChecking=no at_omd@"${IP}" "sudo sed -i '4c xxxxx=10.10.10.1' /xxxxxx/xxxx/xxxxx"
+done
