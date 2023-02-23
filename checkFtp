@@ -1,0 +1,59 @@
+from ftplib import FTP
+
+def qhftp_info_login(province):
+    province.connect(host='xxxxx',port='21')
+    province.login(user='xxxxxx',passwd='xxxxxxx')
+def qhftp_net_login(province):
+    province.connect(host='xxxxxx',port='21')
+    province.login(user='xxxxxxx',passwd='xxxxxxxxx')
+
+def get_asms(province):
+    province.dir('xxxxxx')
+def get_bsms(province):
+    province.dir('xxxxx')
+def get_csms(province):
+    province.dir('6xxxxxxxx')
+def exec_cmd(province,cmd):
+    province.sendcmd(cmd)
+
+if __name__ == '__main__':
+    xx_Ftp=FTP()
+    flag=1
+    while(flag):
+        print("***********FTP***********")
+        print("1.xxxxxx")
+        print("2.xxxxxx")
+        print("0.Exit")
+        print("*************************")
+        choice=int(input("Choose:"))
+        if choice == 1 :
+            qhftp_info_login(xxx_Ftp)
+            flag_info=1
+            while(flag_info):
+                print("1.xxxx")
+                print("2.xxxx")
+                print("3.CMD")
+                info_choice = int(input("choose:"))
+                if info_choice == 1:
+                    get_asms(xxxx_Ftp)
+                elif info_choice == 2:
+                    get_bsms(xxxx_Ftp)
+                elif info_choice == 3:
+                    flag_cmd=1
+                    while(flag_cmd):
+                        ftp_cmd=input("input cmd:")
+                        if ftp_cmd != None:
+                            exec_cmd(xxx_Ftp,ftp_cmd)
+                        else:
+                            flag_cmd=0
+                else:
+                    print("Exit")
+                    flag_info=0
+        elif choice == 2 :
+            qhftp_net_login(xxxx_Ftp)
+            get_csms(xxxx_Ftp)
+        elif choice == 0 :
+            print("Exit")
+            flag=0
+        else:
+            print("Wrong!")
